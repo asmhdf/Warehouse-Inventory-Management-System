@@ -1,0 +1,23 @@
+Challenge Questions: 
+
+1) Why HashMap for product information?
+
+-Quick lookups by ID (O(1) average complexity).
+-Reduces overhead compared to linear search in lists.
+-Flexibility in combining with other data structures like TreeMap if needed.
+
+2)Why ArrayList for daily shipments?
+
+-Maintains insertion order.
+-Efficient addition at the end (O(1)).
+-Easy to iterate in order of arrival.
+
+3)Sorting by both name and ID:
+
+Create a custom comparator:
+products.sort(Comparator.comparing(Product::getName).thenComparing(Product::getId));
+
+4)Handling non-unique IDs or timestamps:
+
+Use a List<Product> instead of a HashMap for products if IDs are not unique.
+Add a timestamp field to Product and store products in a TreeMap<Long, Product> to automatically sort by timestamps.
